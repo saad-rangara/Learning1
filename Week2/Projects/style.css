@@ -1,0 +1,6 @@
+@import url(`https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css`);
+
+*{
+    background-color: rgb(210, 172, 36);
+}
+/* @media #thumbnail-container(){} */
