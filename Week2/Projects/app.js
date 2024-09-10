@@ -3,35 +3,83 @@ console.log(document);
 
 let images = [
     {
-        src:"https://images.unsplash.com/photo-1700197742784-d11e41543b99?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5pbWFsJTIwYmVhdXR5fGVufDB8fDB8fHww",
-        alt: "tiger looking at me",
-        width:300,
-        height:400,
+        src: "./Images/Deer.jpg",
+        alt: "Deer looking at me",
     },
     {
-        src: "https://plus.unsplash.com/premium_photo-1694453109154-3c459850503f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGFuaW1hbCUyMGJlYXV0eXxlbnwwfHwwfHx8MA%3D%3D",
-        alt: "husky",
-        width:300,
-        width:400,
+        src: "./Images/Lion.jpg",
+        alt: "Roar Scary",
     },
     {
-        src:"https://images.unsplash.com/photo-1717934431931-e6c5479f685d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFuaW1hbCUyMGJlYXV0eXxlbnwwfHwwfHx8MA%3D%3D",
-        alt: "eagle flying",
-        width:300,
-        height:400,
+        src: "./Images/LionDark.jpg",
+        alt: "Lion sitting",
     },
     {
-        src:"https://plus.unsplash.com/premium_photo-1693160054879-4a822f244336?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFuaW1hbCUyMGJlYXV0eXxlbnwwfHwwfHx8MA%3D%3D",
-        alt: "flock of sheep",
-        width:300,
-        height:400,
+        src: "./Images/Snowie.jpg",
+        alt: "snow dod got eyes on me",
+    },
+    {
+        src: "./Images/Tiger.jpg",
+        alt: "tiger in the jungle",
     }
 ]
 
-function createThumbnails(thumbnailContainer){
-    thumbnailContainer.forEach(function (thumbnail, index) {
-        createLargeImage(thumbnail,[index])
+let imagegallery = document.getElementById("image-gallery");
+let currentImage = 0
+let mainImageContainer = document.getElementById("main-image-container");
+mainImageContainer.appendChild(createLargeImage(images[currentImage]))
+
+let nextButton = document.getElementById("Next");
+nextButton.addEventListener('click', function() {
+    console.log("currentImage", currentImage)
+    if(currentImage == images.length - 1) {
+        currentImage = 0;
+    } else {
+        currentImage = currentImage + 1;
+    }
+    console.log("currentImage", currentImage)
+
+    mainImageContainer.innerHTML = ""
+    mainImageContainer.appendChild(createLargeImage(images[currentImage]))
+
+})
+
+let prevButton = document.getElementById("Prev");
+prevButton.addEventListener("click", function(){
+    console.log("prevButton", currentImage);
+    if (currentImage == 0){
+        currentImage = images.length - 1;
+    } else {
+        currentImage = currentImage - 1;
+    }
+    mainImageContainer.innerHTML = ""
+    mainImageContainer.appendChild(createLargeImage(images[currentImage]))
+    // console.log("mainImageContainer");
+})
+
+
+createThumbnails()
+
+function createThumbnails(){
+    let imagegallery = document.getElementById("image-gallery");
+    images.forEach((gallery, index) => {
+        let thumbnailImage = document.createElement(`img`)
+        thumbnailImage.setAttribute(`src`, gallery.src)
+        thumbnailImage.setAttribute(`alt`, gallery.alt)
+        imagegallery.appendChild(thumbnailImage)
+        thumbnailImage.addEventListener(`click`, function() {
+            mainImageContainer.innerHTML = ""
+            mainImageContainer.appendChild(createLargeImage(gallery))
+            currentImage = index
+        })
     });
+
 }
 
-function createLargeImage(largeImage){}
+function createLargeImage(image) {
+   let largeImage = document.createElement(`img`)
+   largeImage.setAttribute("src", image.src)
+   largeImage.setAttribute("alt", image.alt)
+//    console.log(largeImage)
+   return largeImage;
+}

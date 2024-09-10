@@ -1,0 +1,7 @@
+*{
+    background-color: rgb(230, 163, 238);
+}
+input[type="text"] {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blue;
+}

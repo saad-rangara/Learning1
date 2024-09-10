@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./app.js" defer></script>
+    <title>Forms-and-Validations</title>
+</head>
+<body>
+    <h1>Forms Validation</h1>
+    <form>
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname" required placeholder="add your firstname"/><br>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" id="lastname" required placeholder="add your lastname"/><br>
+        <label for="Email">Email</label>
+        <input type="email" name="email" id="email-input" required placeholder="add email id"/><br>
+        <label for="Username">Username</label>
+        <input type="text" name="username" id="username-input" required placeholder="add your username"/><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required placeholder="secrets" minlength="6"/><br>
+        <label for="phonenumber">Phone Number</label>
+        <input type="text" name="phone" id="number" placeholder="Valid UK Number">
+        <label for="date">Date of Birth</label>
+        <input type="date" name="dateofbirth" id="dateofbirth" /><br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+        <label for="sex">Sex</label>
+        <select type="radio" name="sex" id="sex" placeholder="Select your sex">
+            <option>Male</option>
+            <option>Female</option>
+    </form>
+</body>
+</html>
