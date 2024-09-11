@@ -1,0 +1,18 @@
+{
+  "name": "purefunction",
+  "version": "1.0.0",
+  "main": "purefunction.js",
+  "scripts": {
+    "coverage": "vitest --coverage",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.0.5",
+    "vitest": "^2.0.5"
+  }
+}
